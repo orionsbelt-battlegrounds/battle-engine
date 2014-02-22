@@ -1,0 +1,11 @@
+{
+  "name" : "obb.battleEngine",
+  "version" : "0.0.1",
+  "main" : "./main.js",
+  "private" : false,
+  "devDependencies" : {
+    "mocha" : "*",
+    "expect.js" : "*",
+    "browserify" : "*"
+  }
+}
