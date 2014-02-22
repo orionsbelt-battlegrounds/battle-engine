@@ -13,6 +13,9 @@
   "devDependencies" : {
     "mocha" : "*",
     "expect.js" : "*",
-    "browserify" : "*"
+    "browserify" : "*",
+    "coveralls" : "*",
+    "mocha-lcov-reporter" : "*"
+
   }
 }
