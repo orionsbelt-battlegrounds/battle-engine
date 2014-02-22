@@ -14,6 +14,6 @@ trace:
 	node ~/node/tracegl.js app.js
 
 deploy:
-	./node_modules/.bin/browserify ./obb.js -o obb-engine.js
+	./node_modules/.bin/browserify ./obb.js -r ./obb.js --standalone obb -o dist/obb-engine.js
 
 .PHONY: test test-w trace deploy
