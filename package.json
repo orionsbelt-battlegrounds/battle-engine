@@ -3,6 +3,9 @@
   "version" : "0.0.2",
   "main" : "./main.js",
   "private" : false,
+  "scripts" : {
+    "test" : "make test"
+  },
   "devDependencies" : {
     "mocha" : "*",
     "expect.js" : "*",
