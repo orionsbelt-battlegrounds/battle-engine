@@ -19,7 +19,8 @@ module.exports={
   "main" : "./main.js",
   "private" : false,
   "scripts" : {
-    "test" : "make test"
+    "test" : "./node_modules/.bin/mocha --recursive --reporter spec --check-leaks",
+    "browserify" : "./node_modules/.bin/browserify ./obb.js -r ./obb.js --standalone obb -o dist/obb-engine.js"
   },
   "repository": {
     "type" : "git",
