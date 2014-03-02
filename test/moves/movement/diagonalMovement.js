@@ -1,20 +1,14 @@
 var expect = require("expect.js");
-var obb = require("./../../../obb.js");
+var diagonalMovement = require("./../../../src/moves/movement/diagonalMovement.js");
 
 describe('diagonalMovement', function(){
 
   describe('#isValid', function() {
 
     it('should be available', function() {
-      expect(obb.moves.diagonalMovement.isValid).to.be.ok();
+      expect(diagonalMovement.isValid).to.be.ok();
     });
 
-  });
-
-  describe('#process', function() {
-    it('should be available', function() {
-      expect(obb.moves.diagonalMovement.process).to.be.ok();
-    });
   });
 
 });

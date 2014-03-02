@@ -1,10 +1,14 @@
 (function diagonalMovement(module) {
 
-  module.isValid = function isValid() {
-    return true;
-  };
+  module.isValid = function(src,dst) {
+    if( dst.x == src.x + 1 && dst.y == src.y + 1 ||
+		dst.x == src.x - 1 && dst.y == src.y - 1 ||
+		dst.x == src.x + 1 && dst.y == src.y - 1 ||
+		dst.x == src.x - 1 && dst.y == src.y + 1 ) {
+		return true;
+	}
 
-  module.process = function isValid() {
+	return false;
   };
 
 })(exports);
