@@ -19,7 +19,7 @@ function sectorTest( coord, numberOfPlayers ) {
 
 function sectorTestX( x, y, numberOfPlayers ) {
   var coord = sectorTest(x,numberOfPlayers);
-  if( coord != null ) {
+  if( coord !== null ) {
     return coord;
   }
   return new Coordinate(x, y);
