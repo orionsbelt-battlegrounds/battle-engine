@@ -24,7 +24,7 @@ describe('coordinate', function(){
     }),
 
     it('should throw an error', function() {
-    	//expect(Coordinate.parse("4")).to.throwError();
+    	expect(Coordinate.parse("4")).to.throwError();
     }),
 
     it('left coordinate N should be valid', function() {
