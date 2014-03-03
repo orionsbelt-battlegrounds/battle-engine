@@ -11,12 +11,14 @@
     "type" : "git",
     "url" : "https://github.com/orionsbelt-battlegrounds/battle-engine.git"
   },
+  "dependencies" : {
+    "underscore":"*"
+  },
   "devDependencies" : {
     "mocha" : "*",
     "expect.js" : "*",
     "browserify" : "*",
     "coveralls" : "*",
     "mocha-lcov-reporter" : "*"
-
   }
 }
