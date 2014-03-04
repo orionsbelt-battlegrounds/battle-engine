@@ -33,6 +33,45 @@ function sectorTestY(x, y, numberOfPlayers ) {
   return new Coordinate(x, y);
 }
 
+var coordinateMover = {
+  "N_next" : { x : -1, y : 0 },
+  "S_next" : { x : 1, y : 0 },
+  "W_next" : { x : 0, y : -1 },
+  "E_next" : { x : 0, y : 1 },
+
+  "N_previous" : { x : 1, y : 0 },
+  "S_previous" : { x : -1, y : 0 },
+  "W_previous" : { x : 0, y : 1 },
+  "E_previous" : { x : 0, y : -1 },
+
+  "N_left" : { x : 0, y : -1 },
+  "S_left" : { x : 0, y : 1 },
+  "W_left" : { x : 1, y : 0 },
+  "E_left" : { x : -1, y : 0 },
+
+  "N_right" : { x : 0, y : 1 },
+  "S_right" : { x : 0, y : -1 },
+  "W_right" : { x : -1, y : 0 },
+  "E_right" : { x : 1, y : 0 }
+};
+
+function resolveValidator(mover) {
+  if(mover.y !== 0 ) {
+    return sectorTestY;
+  }
+  return sectorTestX;
+}
+
+function resolveCoordinate(position, direction, coordinate, numberOfPlayers) {
+  var mover = coordinateMover[position + "_" + direction];
+  if(mover) {
+    var validator = resolveValidator(mover);
+    return validator(coordinate.x + mover.x, coordinate.y + mover.y, numberOfPlayers);
+  } else {
+    throw new Error("Invalid position '" + position + "'.");
+  }
+}
+
 //----------------------
 //      Public 
 //----------------------
@@ -42,63 +81,19 @@ Coordinate.prototype.equals = function(coordinate) {
 };
 
 Coordinate.prototype.nextCoordinate = function(position, numberOfPlayers) {
-  switch( position ) {
-    case "N":
-      return sectorTestX( this.x-1, this.y, numberOfPlayers );
-    case "S":
-      return sectorTestX( this.x+1, this.y, numberOfPlayers );
-    case "W":
-      return sectorTestY( this.x, this.y-1, numberOfPlayers );
-    case "E":
-      return sectorTestY( this.x, this.y+1, numberOfPlayers );
-    default:
-      throw new Error("Invalid position '" + position + "'.");
-  }
+  return resolveCoordinate(position, "next", this, numberOfPlayers);
 };
 
 Coordinate.prototype.previousCoordinate = function(position, numberOfPlayers) {
-  switch( position ) {
-    case "N":
-      return sectorTestX( this.x+1, this.y, numberOfPlayers );
-    case "S":
-      return sectorTestX( this.x-1, this.y, numberOfPlayers );
-    case "W":
-      return sectorTestY( this.x, this.y+1, numberOfPlayers );
-    case "E":
-      return sectorTestY( this.x, this.y-1, numberOfPlayers );
-    default:
-      throw new Error("Invalid position '" + position + "'.");
-  }
+  return resolveCoordinate(position, "previous", this, numberOfPlayers);
 };
 
 Coordinate.prototype.leftCoordinate = function(position, numberOfPlayers) {
-  switch( position ) {
-    case "N":
-      return sectorTestX( this.x, this.y-1, numberOfPlayers );
-    case "S":
-      return sectorTestX( this.x, this.y+1, numberOfPlayers );
-    case "W":
-      return sectorTestY( this.x+1, this.y, numberOfPlayers );
-    case "E":
-      return sectorTestY( this.x-1, this.y, numberOfPlayers );
-    default:
-      throw new Error("Invalid position '" + position + "'.");
-  }
+  return resolveCoordinate(position, "left", this, numberOfPlayers);
 };
 
 Coordinate.prototype.rightCoordinate = function(position, numberOfPlayers) {
-  switch( position ) {
-    case "N":
-      return sectorTestX( this.x, this.y+1, numberOfPlayers );
-    case "S":
-      return sectorTestX( this.x, this.y-1, numberOfPlayers );
-    case "W":
-      return sectorTestY( this.x-1, this.y, numberOfPlayers );
-    case "E":
-      return sectorTestY( this.x+1, this.y, numberOfPlayers );
-    default:
-      throw new Error("Invalid position '" + position + "'.");
-  }
+  return resolveCoordinate(position, "right", this, numberOfPlayers);
 };
 
 //----------------------
