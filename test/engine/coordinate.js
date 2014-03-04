@@ -223,8 +223,31 @@ describe('coordinate', function(){
 
       expect(newCoordinate.x).to.be.equal(13);
       expect(newCoordinate.y).to.be.equal(13);
+    }),
+
+    it('next coordinate should be 9', function() {
+      var coordinate = new Coordinate(7,8);
+
+      var newCoordinate = coordinate.nextCoordinate("E",2);
+
+      expect(newCoordinate.x).to.be.equal(9);
+      expect(newCoordinate.y).to.be.equal(9);
+    }),
+
+    it('next coordinate should be 13', function() {
+      var coordinate = new Coordinate(1,12);
+
+      var newCoordinate = coordinate.nextCoordinate("E",4);
+
+      expect(newCoordinate.x).to.be.equal(13);
+      expect(newCoordinate.y).to.be.equal(13);
+    }),
+
+    it('should be equal', function() {
+      var coordinate1 = new Coordinate(1,12);
+      var coordinate2 = new Coordinate(1,12);
+
+      expect(coordinate1.equals(coordinate2)).to.be.ok();
     })
-
   });
-
 });
