@@ -15,23 +15,23 @@ function sectorTest( coord, numberOfPlayers ) {
     return new Coordinate(0, 0);
   }
   return null;
-};
+}
 
 function sectorTestX( x, y, numberOfPlayers ) {
   var coord = sectorTest(x,numberOfPlayers);
-  if( coord != null ) {
+  if( coord !== null ) {
     return coord;
   }
   return new Coordinate(x, y);
-};
+}
 
 function sectorTestY(x, y, numberOfPlayers ) {
   var coord = sectorTest(y,numberOfPlayers);
-  if( coord != null ) {
+  if( coord !== null ) {
     return coord;
   }
   return new Coordinate(x, y);
-};
+}
 
 //----------------------
 //      Public 
@@ -109,13 +109,13 @@ function parse(str) {
   if( str !== null ) {
     var splitted = str.split("_");
     if( splitted.length === 2) {
-      return new Coordinate(parseInt(splitted[0]),parseInt(splitted[1]));
+      return new Coordinate(parseInt(splitted[0],10),parseInt(splitted[1],10));
     }else{
       throw new Error("Coordinate with a incorrect number of values.");
     }
   }
   throw new Error("Invalid Coordinate.");
-};
+}
 
 //----------------------
 //      Constructor 
@@ -124,7 +124,7 @@ function parse(str) {
 function Coordinate(x,y) {
   this.x = x;
   this.y = y;
-};
+}
 
 module.exports = Coordinate;
 module.exports.parse = parse;
