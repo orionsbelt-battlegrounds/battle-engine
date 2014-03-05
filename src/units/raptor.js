@@ -1,3 +1,5 @@
+var movementType = require("./../moves/movement/allMovement.js");
+
 module.exports = {
   name : "raptor",
   attack : 280,
@@ -8,7 +10,7 @@ module.exports = {
   type : "mechanic",
   category: "light",
   displacement : "air",
-  movementType : null,
+  movementType : movementType,
   movementCost : 1,
   attackMoves : [],
   posAttackMoves : [],

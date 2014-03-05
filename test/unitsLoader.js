@@ -25,6 +25,8 @@ describe('unitLoader', function() {
         expect(unit.name).to.be.a('string');
         expect(unit.code).to.be.a('string');
 
+        expect(unit.movementType).not.to.be.empty();
+
         expect(['light', 'medium', 'heavy']).to.contain(unit.category);
         expect(['mechanic', 'animal']).to.contain(unit.type);
         expect(['air', 'ground', 'water']).to.contain(unit.displacement);
