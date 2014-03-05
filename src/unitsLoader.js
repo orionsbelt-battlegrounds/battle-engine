@@ -6,6 +6,7 @@ var hash = {};
 _.each(files, function selectedFile(file) {
   var unit = require('./../src/units/' + file);
   hash[unit.name] = unit;
+  hash[unit.code] = unit;
 });
 
 module.exports = hash;

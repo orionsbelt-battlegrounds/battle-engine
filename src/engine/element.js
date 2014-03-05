@@ -1,4 +1,6 @@
-var Coordinate = require("coordinate");
+var Coordinate = require("coordinate.js");
+var bonus = require("bonus.js");
+var unitsLoader = require("../unitsLoader.js");
 
 
 Element.prototype.clone : function () {
@@ -25,8 +27,8 @@ Element.prototype.resolveEffects : function() {
 //   Unit Properties
 //----------------------
 
-Element.prototype.getAttack : function() {
-
+Element.prototype.getAttack : function(terrain,target) {
+	bonus.getAttack(this,terrain,target);
 
 }
 
@@ -48,20 +50,31 @@ Element.prototype.getRange : function() {
 
 
 function Element(content){
+	this.canBeMoved = true,
+	this.canUseSpecialAbilities = true,
+	this.coolDown = 0;
+
 	var splittedData = content.split("-");
 
-	this.quantity = 0;
+	this.unit = unitsLoader[splittedData[0]];
+	this.coordinate = Coordinate.parse(splittedData[1]);
+	this.quantity = splittedData[2];
 	this.originalQuantity = this.quantity;
 
-	this.position = null;
-	remainingDefense = 0;
-	
-	canBeMoved = true,
-	canUseSpecialAbilities = true,
-	coolDown = 0;
+	this.position = splittedData[3];
 
-	effects = {};
+	if( splittedData.length > 4) {
+		var data = splittedData[4];
+		var rd = parseInt(data);
+		if( rd != NaN ) {
+			this.remainingDefense = rd;
+			if( splittedData.length > 5) {
+				this.effects = parseEffects(splittedData[5]);
+			}
+		}else{
+			this.effects = parseEffects(splittedData[4]);
+		}
+	}
 }
-
 
 module.exports = Element;
