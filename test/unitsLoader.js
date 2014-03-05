@@ -13,16 +13,31 @@ describe('unitLoader', function() {
     expect(Object.keys(obb.units).length).to.equal(4);
   })
 
+  it('each unit has an unique name', function() {
+    var names = _.map(obb.units, function(unit) { return unit.name });
+    var noDuplicates = _.unique(names);
+    expect(noDuplicates.length).to.eql(Object.keys(obb.units).length);
+  })
+
   describe('verifies that all units have correct properties', function() {
     _.each(obb.units, function process(unit) {
       it(unit.name + " is ok ", function(){
         expect(unit.name).to.be.a('string');
         expect(unit.code).to.be.a('string');
+
         expect(['light', 'medium', 'heavy']).to.contain(unit.category);
+        expect(['mechanic', 'animal']).to.contain(unit.type);
+        expect(['air', 'ground', 'water']).to.contain(unit.displacement);
+
         expect(unit.attack).to.be.a('number');
         expect(unit.defense).to.be.a('number');
         expect(unit.range).to.be.a('number');
         expect(unit.value).to.be.a('number');
+
+        expect(unit.attackMoves).to.be.an('array');
+        expect(unit.posAttackMoves).to.be.an('array');
+        expect(unit.posDefenseMoves).to.be.an('array');
+        expect(unit.defenseMoves).to.be.an('array');
       })
     })
   })

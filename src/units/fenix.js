@@ -1,5 +1,5 @@
-var normalMovement = require("../moves/movement/normalMovement.js");
-var Rebound = require("../moves/special/rebound.js");
+var normalMovement = require("./../moves/movement/normalMovement.js");
+var Rebound = require("./../moves/special/rebound.js");
 
 module.exports = {
 

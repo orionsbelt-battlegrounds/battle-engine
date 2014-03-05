@@ -22,8 +22,8 @@ module.exports = {
             }
         }
     },
-    attackMoves : {},
-    posAttackMoves : {},
-    defenseMoves : {},
-    posDefenseMoves : {}
+    attackMoves : [],
+    posAttackMoves : [],
+    defenseMoves : [],
+    posDefenseMoves : []
 };
