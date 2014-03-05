@@ -33,6 +33,7 @@ describe('unitLoader', function() {
         expect(unit.defense).to.be.a('number');
         expect(unit.range).to.be.a('number');
         expect(unit.value).to.be.a('number');
+        expect(unit.movementCost).to.be.a('number');
 
         expect(unit.attackMoves).to.be.an('array');
         expect(unit.posAttackMoves).to.be.an('array');

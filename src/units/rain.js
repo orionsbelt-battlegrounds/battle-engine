@@ -12,6 +12,7 @@ module.exports = {
     category:"light",
     displacement:"air",
     movementType: allMovement,
+    movementCost: 1,
     bonus : {
         heavy : {
             attack : 200

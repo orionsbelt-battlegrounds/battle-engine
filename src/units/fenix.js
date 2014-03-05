@@ -13,6 +13,7 @@ module.exports = {
     category:"heavy",
     displacement:"air",
     movementType: normalMovement,
+    movementCost: 3,
     attackMoves : [],
     posAttackMoves : [new Rebound()],
     defenseMoves : [],
