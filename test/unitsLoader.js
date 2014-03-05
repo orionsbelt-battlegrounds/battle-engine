@@ -10,12 +10,18 @@ describe('unitLoader', function() {
   })
 
   it('has all available units registered', function() {
-    expect(Object.keys(obb.units).length).to.equal(4);
+    expect(Object.keys(obb.units).length).to.equal(6);
   })
 
   it('each unit has an unique name', function() {
     var names = _.map(obb.units, function(unit) { return unit.name });
     var noDuplicates = _.unique(names);
+    expect(noDuplicates.length).to.eql(Object.keys(obb.units).length);
+  })
+
+  it('each unit has an unique code', function() {
+    var codes = _.map(obb.units, function(unit) { return unit.code });
+    var noDuplicates = _.unique(codes);
     expect(noDuplicates.length).to.eql(Object.keys(obb.units).length);
   })
 
