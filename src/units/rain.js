@@ -1,10 +1,10 @@
 var allMovement = require("../moves/movement/allMovement.js");
 
-var rain = {
+module.exports = {
 
     attack : 120,
     defense: 70,
-    range : 1;
+    range : 1,
     name : "rain",
     code : "r",
     value : 4,
@@ -27,5 +27,3 @@ var rain = {
     defenseMoves : {},
     posDefenseMoves : {}
 };
-
-module.exports = rain;
