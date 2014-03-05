@@ -12,6 +12,11 @@ module.exports = {
   displacement : "air",
   movementType : movementType,
   movementCost : 1,
+  bonus : {
+    light : {
+      attack : 200
+    }
+  },
   attackMoves : [],
   posAttackMoves : [],
   defenseMoves : [],
