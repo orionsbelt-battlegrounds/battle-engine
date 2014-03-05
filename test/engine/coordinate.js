@@ -9,8 +9,11 @@ describe('coordinate', function(){
       var coordinate = new Coordinate(1,2);
       expect(coordinate.x).to.be.equal(1);
       expect(coordinate.y).to.be.equal(2);
-    }),
+    })
 
+  }),
+  
+  describe('#parse', function() {
     it('3_4 should be valid', function() {
       var coordinate = Coordinate.parse("3_4");
       expect(coordinate.x).to.be.equal(3);
@@ -29,8 +32,10 @@ describe('coordinate', function(){
 
     it('should throw an error', function() {
       expect(Coordinate.parse).withArgs(null).to.throwError();
-    }),
+    })
+  }),
 
+  describe('#leftCoordinate', function() {
     it('left coordinate N should be valid', function() {
       var coordinate = new Coordinate(2,2);
 
@@ -73,8 +78,10 @@ describe('coordinate', function(){
     it('should throw an error', function() {
       var coord = new Coordinate(1,1);
       expect(coord.leftCoordinate).withArgs("A",2).to.throwError();
-    }),
+    })
+  }),
 
+  describe('#rightCoordinate', function() {
     it('right coordinate N should be valid', function() {
       var coordinate = new Coordinate(2,2);
 
@@ -114,7 +121,11 @@ describe('coordinate', function(){
     it('should throw an error', function() {
       var coord = new Coordinate(1,1);
       expect(coord.rightCoordinate).withArgs("A",2).to.throwError();
-    }),
+    })
+
+  }),
+
+  describe('#nextCoordinate', function() {
 
     it('next coordinate N should be valid', function() {
       var coordinate = new Coordinate(2,2);
@@ -166,6 +177,28 @@ describe('coordinate', function(){
       expect(newCoordinate.y).to.be.equal(0);
     }),
 
+    it('next coordinate should be 9', function() {
+      var coordinate = new Coordinate(7,8);
+
+      var newCoordinate = coordinate.nextCoordinate("E",2);
+
+      expect(newCoordinate.x).to.be.equal(9);
+      expect(newCoordinate.y).to.be.equal(9);
+    }),
+
+    it('next coordinate should be 13', function() {
+      var coordinate = new Coordinate(1,12);
+
+      var newCoordinate = coordinate.nextCoordinate("E",4);
+
+      expect(newCoordinate.x).to.be.equal(13);
+      expect(newCoordinate.y).to.be.equal(13);
+    })
+
+  }),
+
+  describe('#previousCoordinate', function() {
+  
     it('previous coordinate N should be valid', function() {
       var coordinate = new Coordinate(2,2);
 
@@ -223,25 +256,11 @@ describe('coordinate', function(){
 
       expect(newCoordinate.x).to.be.equal(13);
       expect(newCoordinate.y).to.be.equal(13);
-    }),
+    })
 
-    it('next coordinate should be 9', function() {
-      var coordinate = new Coordinate(7,8);
+  }),
 
-      var newCoordinate = coordinate.nextCoordinate("E",2);
-
-      expect(newCoordinate.x).to.be.equal(9);
-      expect(newCoordinate.y).to.be.equal(9);
-    }),
-
-    it('next coordinate should be 13', function() {
-      var coordinate = new Coordinate(1,12);
-
-      var newCoordinate = coordinate.nextCoordinate("E",4);
-
-      expect(newCoordinate.x).to.be.equal(13);
-      expect(newCoordinate.y).to.be.equal(13);
-    }),
+  describe('#equals', function() {
 
     it('should be equal', function() {
       var coordinate1 = new Coordinate(1,12);
