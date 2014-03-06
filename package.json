@@ -1,5 +1,5 @@
 {
-  "name" : "obb-battleEngine",
+  "name" : "obb-battle-engine",
   "version" : "0.0.2",
   "main" : "./main.js",
   "private" : false,
