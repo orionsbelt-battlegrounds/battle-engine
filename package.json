@@ -1,7 +1,7 @@
 {
   "name" : "obb-battle-engine",
-  "version" : "0.0.2",
-  "main" : "./main.js",
+  "version" : "0.0.3",
+  "main" : "./obb.js",
   "private" : false,
   "scripts" : {
     "test" : "./node_modules/.bin/mocha --recursive --reporter spec --check-leaks",
