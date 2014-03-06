@@ -14,7 +14,7 @@
 module.exports=_dereq_('ZIjswD');
 },{}],3:[function(_dereq_,module,exports){
 module.exports={
-  "name" : "obb.elo",
+  "name" : "obb.battleEngine",
   "version" : "0.0.2",
   "main" : "./main.js",
   "private" : false,
