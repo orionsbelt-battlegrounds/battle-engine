@@ -34,25 +34,25 @@ function sectorTestY(x, y, numberOfPlayers ) {
 }
 
 var coordinateMover = {
-  "N_next" : { x : -1, y : 0 },
-  "S_next" : { x : 1, y : 0 },
-  "W_next" : { x : 0, y : -1 },
-  "E_next" : { x : 0, y : 1 },
+  "N_next" : { x : 0, y : -1 },
+  "S_next" : { x : 0, y : 1 },
+  "W_next" : { x : -1, y : 0 },
+  "E_next" : { x : 1, y : 0 },
 
-  "N_previous" : { x : 1, y : 0 },
-  "S_previous" : { x : -1, y : 0 },
-  "W_previous" : { x : 0, y : 1 },
-  "E_previous" : { x : 0, y : -1 },
+  "N_previous" : { x : 0, y : 1 },
+  "S_previous" : { x : 0, y : -1 },
+  "W_previous" : { x : 1, y : 0 },
+  "E_previous" : { x : -1, y : 0 },
 
-  "N_left" : { x : 0, y : -1 },
-  "S_left" : { x : 0, y : 1 },
-  "W_left" : { x : 1, y : 0 },
-  "E_left" : { x : -1, y : 0 },
+  "N_left" : { x : -1, y : 0 },
+  "S_left" : { x : 1, y : 0 },
+  "W_left" : { x : 0, y : 1 },
+  "E_left" : { x : 0, y : -1 },
 
-  "N_right" : { x : 0, y : 1 },
-  "S_right" : { x : 0, y : -1 },
-  "W_right" : { x : -1, y : 0 },
-  "E_right" : { x : 1, y : 0 }
+  "N_right" : { x : 1, y : 0 },
+  "S_right" : { x : -1, y : 0 },
+  "W_right" : { x : 0, y : -1 },
+  "E_right" : { x : 0, y : 1 }
 };
 
 function resolveValidator(mover) {

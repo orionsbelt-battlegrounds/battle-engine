@@ -9,8 +9,16 @@ describe('unitLoader', function() {
     expect(obb.units).not.to.be.empty();
   })
 
+  it('codes are available on the main module', function() {
+    expect(obb.codes).not.to.be.empty();
+  })
+
   it('has all available units registered', function() {
     expect(Object.keys(obb.units).length).to.equal(4);
+  })
+
+  it('has all available codes registered', function() {
+    expect(Object.keys(obb.codes).length).to.equal(4);
   })
 
   describe('verifies that all units have correct properties', function() {

@@ -7,7 +7,7 @@ describe('frontMovement', function(){
   describe('#isValid', function() {
 
     it('should be available', function() {
-      expect(!frontMovement.isValid).to.be.ok();
+      expect(frontMovement.isValid).to.be.ok();
     });
 
     it('should be valid', function() {

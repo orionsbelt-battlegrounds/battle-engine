@@ -5,7 +5,7 @@ describe('coordinate', function(){
 
   describe('#coordinate', function() {
 
-    it('1,2 should be valid', function() {
+    it('1_2 should be valid', function() {
       var coordinate = new Coordinate(1,2);
       expect(coordinate.x).to.be.equal(1);
       expect(coordinate.y).to.be.equal(2);
@@ -41,8 +41,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.leftCoordinate("N",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(1);
+      expect(newCoordinate.x).to.be.equal(1);
+      expect(newCoordinate.y).to.be.equal(2);
 
     }),
 
@@ -51,8 +51,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.leftCoordinate("S",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(3);
+      expect(newCoordinate.x).to.be.equal(3);
+      expect(newCoordinate.y).to.be.equal(2);
 
     }),
 
@@ -61,8 +61,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.leftCoordinate("W",2);
 
-      expect(newCoordinate.x).to.be.equal(3);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(3);
 
     }),
 
@@ -71,8 +71,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.leftCoordinate("E",2);
 
-      expect(newCoordinate.x).to.be.equal(1);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(1);
     }),
 
     it('should throw an error', function() {
@@ -87,8 +87,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.rightCoordinate("N",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(3);
+      expect(newCoordinate.x).to.be.equal(3);
+      expect(newCoordinate.y).to.be.equal(2);
     }),
 
     it('right coordinate S should be valid', function() {
@@ -96,8 +96,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.rightCoordinate("S",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(1);
+      expect(newCoordinate.x).to.be.equal(1);
+      expect(newCoordinate.y).to.be.equal(2);
     }),
 
     it('right coordinate W should be valid', function() {
@@ -105,8 +105,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.rightCoordinate("W",2);
 
-      expect(newCoordinate.x).to.be.equal(1);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(1);
     }),
 
     it('right coordinate E should be valid', function() {
@@ -114,8 +114,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.rightCoordinate("E",2);
 
-      expect(newCoordinate.x).to.be.equal(3);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(3);
     }),
 
     it('should throw an error', function() {
@@ -132,8 +132,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.nextCoordinate("N",2);
 
-      expect(newCoordinate.x).to.be.equal(1);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(1);
     }),
 
     it('next coordinate S should be valid', function() {
@@ -141,8 +141,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.nextCoordinate("S",2);
 
-      expect(newCoordinate.x).to.be.equal(3);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(3);
     }),
 
     it('next coordinate W should be valid', function() {
@@ -150,8 +150,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.nextCoordinate("W",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(1);
+      expect(newCoordinate.x).to.be.equal(1);
+      expect(newCoordinate.y).to.be.equal(2);
     }),
 
     it('next coordinate E should be valid', function() {
@@ -159,8 +159,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.nextCoordinate("E",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(3);
+      expect(newCoordinate.x).to.be.equal(3);
+      expect(newCoordinate.y).to.be.equal(2);
     }),
 
     it('should throw an error', function() {
@@ -180,7 +180,7 @@ describe('coordinate', function(){
     it('next coordinate should be 9', function() {
       var coordinate = new Coordinate(7,8);
 
-      var newCoordinate = coordinate.nextCoordinate("E",2);
+      var newCoordinate = coordinate.nextCoordinate("S",2);
 
       expect(newCoordinate.x).to.be.equal(9);
       expect(newCoordinate.y).to.be.equal(9);
@@ -189,7 +189,7 @@ describe('coordinate', function(){
     it('next coordinate should be 13', function() {
       var coordinate = new Coordinate(1,12);
 
-      var newCoordinate = coordinate.nextCoordinate("E",4);
+      var newCoordinate = coordinate.nextCoordinate("S",4);
 
       expect(newCoordinate.x).to.be.equal(13);
       expect(newCoordinate.y).to.be.equal(13);
@@ -204,8 +204,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.previousCoordinate("N",2);
 
-      expect(newCoordinate.x).to.be.equal(3);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(3);
     }),
 
     it('previous coordinate S should be valid', function() {
@@ -213,8 +213,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.previousCoordinate("S",2);
 
-      expect(newCoordinate.x).to.be.equal(1);
-      expect(newCoordinate.y).to.be.equal(2);
+      expect(newCoordinate.x).to.be.equal(2);
+      expect(newCoordinate.y).to.be.equal(1);
     }),
 
     it('previous coordinate W should be valid', function() {
@@ -222,8 +222,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.previousCoordinate("W",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(3);
+      expect(newCoordinate.x).to.be.equal(3);
+      expect(newCoordinate.y).to.be.equal(2);
     }),
 
     it('previous coordinate E should be valid', function() {
@@ -231,8 +231,8 @@ describe('coordinate', function(){
 
       var newCoordinate = coordinate.previousCoordinate("E",2);
 
-      expect(newCoordinate.x).to.be.equal(2);
-      expect(newCoordinate.y).to.be.equal(1);
+      expect(newCoordinate.x).to.be.equal(1);
+      expect(newCoordinate.y).to.be.equal(2);
     }),
 
     it('should throw an error', function() {
@@ -250,7 +250,7 @@ describe('coordinate', function(){
     }),
 
     it('previous coordinate should be 13', function() {
-      var coordinate = new Coordinate(12,1);
+      var coordinate = new Coordinate(1,12);
 
       var newCoordinate = coordinate.previousCoordinate("N",4);
 

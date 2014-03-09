@@ -1,20 +1,20 @@
 (function allMovement(module) {
 
   module.isValid = function(numberOfPlayers,dst) {
-  	if( numberOfPlayers == 2 ) {
-		if( dst.x != 8 && dst.x != 7 ) {
-			return false;
-		}
+    if( numberOfPlayers == 2 ) {
+      if( dst.y != 8 && dst.y != 7 ) {
+        return false;
+      }
 
-		return true;
-	}
+      return true;
+    }
 
-	//4 Players
-	if( ( dst.x == 12 || dst.x == 11 ) && ( dst.y > 2 && dst.y < 11 ) ) {
-		return true;
-	}
+    //4 Players
+    if( ( dst.y == 12 || dst.y == 11 ) && ( dst.x > 2 && dst.x < 11 ) ) {
+      return true;
+    }
 
-	return false;
+    return false;
   };
 
 })(exports);

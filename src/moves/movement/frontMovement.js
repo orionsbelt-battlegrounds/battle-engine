@@ -1,28 +1,17 @@
 (function frontMovement(module) {
 
-	module.isValid = function(src,dst,position) {
- 		switch(position) {
- 			case "N":
- 				if( dst.x == src.x - 1 && src.y == dst.y ) {
-					return true;
-				}
-			case "S":
-				if( dst.x == src.x + 1 && src.y == dst.y ) {
-					return true;
-				}
-			case "W":
-				if( dst.y == src.y - 1 && src.x == dst.x ) {
-					return true;
-				}
-			case "E":
-				if( dst.y == src.y + 1 && src.x == dst.x ) {
-					return true;
-				}
-			default:
-				throw new Error("Invalid position.")
-		}
-		return false;
+  var frontValues = {
+    N : { x : 0, y: -1 },
+    S : { x : 0, y: 1 },
+    W : { x : -1, y: 0 },
+    E : { x : 1, y: 0 }
+  };
 
-  	};
-
+  module.isValid = function(src,dst,position) {
+    var value =  frontValues[position];
+    if( value != null ) {
+      return dst.x == src.x + value.x && dst.y == src.y + value.y;
+    }
+    throw new Error("Invalid position.")
+  };
 })(exports);
