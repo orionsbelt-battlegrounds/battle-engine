@@ -1,5 +1,5 @@
-var normalMovement = require("../moves/movement/normalMovement.js");
-var Rebound = require("../moves/special/rebound.js");
+var normalMovement = require("./../moves/movement/normalMovement.js");
+var Rebound = require("./../moves/special/rebound.js");
 
 module.exports = {
   attack : 2500,
@@ -12,9 +12,9 @@ module.exports = {
   category:"heavy",
   displacement:"air",
   movementType: normalMovement,
+  movementCost: 3,
   attackMoves : [],
   posAttackMoves : [new Rebound()],
   defenseMoves : [],
   posDefenseMoves : []
-
 };

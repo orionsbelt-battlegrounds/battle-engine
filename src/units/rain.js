@@ -11,16 +11,17 @@ module.exports = {
   category:"light",
   displacement:"air",
   movementType: allMovement,
+  movementCost: 1,
+  attackMoves : [],
+  posAttackMoves : [],
+  defenseMoves : [],
+  posDefenseMoves : []
   bonus : {
-      heavy : {
-          attack : 200
-      },
-      terrest : {
-          attack : 200
-      }
+    heavy : {
+        attack : 200
+    },
+    terrest : {
+        attack : 200
+    }
   },
-  attackMoves : {},
-  posAttackMoves : {},
-  defenseMoves : {},
-  posDefenseMoves : {}
 };
