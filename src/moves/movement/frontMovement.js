@@ -7,6 +7,8 @@
     E : { x : 1, y: 0 }
   };
 
+  module.name = "frontMovement";
+
   module.isValid = function(src,dst,position) {
     var value =  frontValues[position];
     if( value != null ) {
