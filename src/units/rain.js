@@ -15,7 +15,7 @@ module.exports = {
   attackMoves : [],
   posAttackMoves : [],
   defenseMoves : [],
-  posDefenseMoves : []
+  posDefenseMoves : [],
   bonus : {
     heavy : {
         attack : 200
