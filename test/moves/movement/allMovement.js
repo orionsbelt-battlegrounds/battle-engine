@@ -10,6 +10,10 @@ describe('allMovement', function(){
       expect(allMovement.isValid).to.be.ok();
     });
 
+    it('should respond to name', function() {
+      expect(allMovement.name).to.be("allMovement");
+    });
+
     it('should be valid', function() {
       var src = new Coordinate(3,7);
       var dst = new Coordinate(3,6);
