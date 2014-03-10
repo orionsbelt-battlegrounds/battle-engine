@@ -30,7 +30,7 @@ describe('unitLoader', function() {
   })
 
   it('has all available codes registered', function() {
-    expect(Object.keys(obb.codes).length).to.equal(4);
+    expect(Object.keys(obb.codes).length).to.equal(6);
   })
 
   describe('verifies that all units have correct properties', function() {
