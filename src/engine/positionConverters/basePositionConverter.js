@@ -33,7 +33,7 @@ basePositionConverter.prototype.convertPositionToSpecific = function (position){
     return null;
   }
   return position;
-};
+};  
 
 basePositionConverter.prototype.maxCoordinateValue  = function (){
   if( this.numberOfPlayers == 2) {

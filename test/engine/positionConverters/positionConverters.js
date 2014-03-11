@@ -2,6 +2,7 @@ var assert = require('assert');
 var expect = require("expect.js");
 var coordinate = require("./../../../src/engine/coordinate.js");
 var basePositionConverter = require("./../../../src/engine/positionConverters/basePositionConverter.js");
+var convertToPlayer1 = require("./../../../src/engine/positionConverters/convertToPlayer1.js");
 var positionType = require("./../../../src/engine/positionConverters/positionType.js");
 
 describe("obb.battle-engine.engine.positionConverters", function() {
@@ -98,6 +99,87 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("max coordinate value for differebt of 2 players", function() {
       var converter = new basePositionConverter(4);
+
+      expect(converter.maxCoordinateValue()).to.be.equal(13);
+
+    })
+
+  })
+
+  describe('#convertToPlayer1', function() {
+    it("is available", function() {
+      assert(convertToPlayer1);
+    })
+
+    it("Resolve Ultimate Coordinate return null", function() {
+      var coor = new coordinate(100,0);
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.resolveUltimateCoordinate(coor)).to.eql(null);
+      //assert.equal(converter.resolveUltimateCoordinate(coor),null);
+     
+    })
+
+    it("Resolve Ultimate Coordinate player number <> 2", function() {
+      var coor = new coordinate(100,0);
+      var converter = new convertToPlayer1(4);
+
+      expect(converter.resolveUltimateCoordinate(coor)).to.eql(null);
+      //assert.equal(converter.resolveUltimateCoordinate(coor),null);
+     
+    })
+
+    it("Resolve Ultimate Coordinate return coordinate9", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.resolveUltimateCoordinate(converter.base.coordinate0)).to.eql(converter.base.coordinate9);
+
+    })
+
+    it("Resolve Ultimate Coordinate return coordinate0", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.resolveUltimateCoordinate(converter.base.coordinate9)).to.eql(converter.base.coordinate0);
+
+    })
+
+    it("Resolve Ultimate Coordinate return coordinate19", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.resolveUltimateCoordinate(converter.base.coordinate10)).to.eql(converter.base.coordinate19);
+
+    })
+
+    it("Resolve Ultimate Coordinate return coordinate10", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.resolveUltimateCoordinate(converter.base.coordinate19)).to.eql(converter.base.coordinate10);
+
+    })
+
+    it("convert Position To Specific Success", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.convertPositionToSpecific("N")).to.eql("N");
+
+    })
+
+    it("convert Position To Specific fail", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.convertPositionToSpecific("T")).to.eql(null);
+
+    })
+
+    it("max coordinate value 2 players", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.maxCoordinateValue()).to.be.equal(9);
+
+    })
+
+    it("max coordinate value for differebt of 2 players", function() {
+      var converter = new convertToPlayer1(4);
 
       expect(converter.maxCoordinateValue()).to.be.equal(13);
 
