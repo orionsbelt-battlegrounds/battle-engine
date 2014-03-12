@@ -29,6 +29,9 @@ basePositionConverter.prototype.resolveUltimateCoordinate = function(coord){
 };
 
 basePositionConverter.prototype.convertPositionToBase = function (position){
+  if(positionType.position[position] === undefined){
+    return null;
+  }
   return position;
 }; 
 
