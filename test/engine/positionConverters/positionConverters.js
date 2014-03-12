@@ -90,6 +90,28 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     })
 
+    it("convert Position To Base Success", function() {
+      var converter = new basePositionConverter(2);
+
+      expect(converter.convertPositionToBase("N")).to.eql("N");
+
+    })
+
+    it("convert Coordinate To Base Success", function() {
+      var converter = new basePositionConverter(2);
+      var coor = new coordinate(1,1);
+      expect(converter.convertCoordinateToBase(coor)).to.eql(coor);
+
+    })
+
+    it("convert Coordinate To Specific Success", function() {
+      var converter = new basePositionConverter(2);
+      var coor = new coordinate(1,1);
+      expect(converter.convertCoordinateToSpecific(coor)).to.eql(coor);
+
+    })
+
+
     it("max coordinate value 2 players", function() {
       var converter = new basePositionConverter(2);
 
@@ -168,6 +190,26 @@ describe("obb.battle-engine.engine.positionConverters", function() {
       var converter = new convertToPlayer1(2);
 
       expect(converter.convertPositionToSpecific("T")).to.eql(null);
+
+    })
+
+    it("convert Position To Base Success", function() {
+      var converter = new convertToPlayer1(2);
+
+      expect(converter.convertPositionToBase("N")).to.eql("N");
+
+    })
+    it("convert Coordinate To Base Success", function() {
+      var converter = new convertToPlayer1(2);
+      var coor = new coordinate(1,1);
+      expect(converter.convertCoordinateToBase(coor)).to.eql(coor);
+
+    })
+
+    it("convert Coordinate To Specific Success", function() {
+      var converter = new convertToPlayer1(2);
+      var coor = new coordinate(1,1);
+      expect(converter.convertCoordinateToSpecific(coor)).to.eql(coor);
 
     })
 
