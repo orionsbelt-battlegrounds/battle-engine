@@ -8,7 +8,7 @@ function basePositionConverter(players) {
   this.coordinate9 = new  coordinate(9,9);
   this.coordinate19 = new coordinate(1, 9);
   new positionType();
-}
+} 
 
 basePositionConverter.prototype.resolveUltimateCoordinate = function(coord){
   if( this.numberOfPlayers == 2 ) {
@@ -28,12 +28,27 @@ basePositionConverter.prototype.resolveUltimateCoordinate = function(coord){
     return null;
 };
 
+basePositionConverter.prototype.convertPositionToBase = function (position){
+  if(positionType.position[position] === undefined){
+    return null;
+  }
+  return position;
+}; 
+
 basePositionConverter.prototype.convertPositionToSpecific = function (position){
   if(positionType.position[position] === undefined){
     return null;
   }
   return position;
-};
+}; 
+
+basePositionConverter.prototype.convertCoordinateToBase = function (coord){
+  return coord;
+}; 
+
+basePositionConverter.prototype.convertCoordinateToSpecific = function (coord){
+  return coord;
+}; 
 
 basePositionConverter.prototype.maxCoordinateValue  = function (){
   if( this.numberOfPlayers == 2) {
