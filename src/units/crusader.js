@@ -1,4 +1,4 @@
-var movementType = require("./../moves/movement/frontMovement.js");
+var Attack = require("./../moves/special/attack.js");
 
 module.exports = {
   name : "crusader",
@@ -10,9 +10,10 @@ module.exports = {
   type : "mechanic",
   category: "heavy",
   displacement : "air",
-  movementType : movementType,
+  movementType : require("./../moves/movement/frontMovement.js"),
   movementCost : 4,
-  attackMoves : [],
+  catapult: false,
+  attackMoves : [Attack],
   posAttackMoves : [],
   defenseMoves : [],
   posDefenseMoves : []

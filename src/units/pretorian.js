@@ -1,4 +1,4 @@
-
+var Attack = require("./../moves/special/attack.js");
 var StrikeBack = require("./../moves/special/strikeBack.js");
 
 module.exports = {
@@ -13,8 +13,9 @@ module.exports = {
   displacement:"air",
   movementType: require("./../moves/movement/diagonalMovement.js"),
   movementCost: 2,
-  attackMoves : [],
+  catapult: false,
+  attackMoves : [Attack],
   posAttackMoves : [],
-  defenseMoves : [new StrikeBack()],
+  defenseMoves : [StrikeBack],
   posDefenseMoves : []
 };

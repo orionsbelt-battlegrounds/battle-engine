@@ -1,4 +1,4 @@
-var allMovement = require("../moves/movement/allMovement.js");
+var Attack = require("./../moves/special/attack.js");
 
 module.exports = {
   attack : 120,
@@ -10,9 +10,10 @@ module.exports = {
   type : "mechanic",
   category:"light",
   displacement:"air",
-  movementType: allMovement,
+  movementType: require("../moves/movement/allMovement.js"),
   movementCost: 1,
-  attackMoves : [],
+  catapult: false,
+  attackMoves : [Attack],
   posAttackMoves : [],
   defenseMoves : [],
   posDefenseMoves : [],

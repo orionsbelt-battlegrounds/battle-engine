@@ -1,3 +1,5 @@
+var Attack = require("./../moves/special/attack.js");
+
 module.exports = {
   attack : 1100,
   defense: 1200,
@@ -18,7 +20,8 @@ module.exports = {
     }
   },
   movementCost: 2,
-  attackMoves : [],
+  catapult: true,
+  attackMoves : [Attack],
   posAttackMoves : [],
   defenseMoves : [],
   posDefenseMoves : []

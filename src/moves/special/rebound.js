@@ -3,10 +3,9 @@ function Rebound() {
 
 }
 
-Rebound.prototype.resolve = function( board, attacker, target) {
+Rebound.prototype.resolve = function( board, origin, target) {
 
 
 }
 
-module.exports = Rebound;
-//module.exports = new Rebound(); //?????
+module.exports = new Rebound();

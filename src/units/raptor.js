@@ -1,4 +1,5 @@
-var movementType = require("./../moves/movement/allMovement.js");
+var Attack = require("./../moves/special/attack.js");
+var Rebound = require("./../moves/special/rebound.js");
 
 module.exports = {
   name : "raptor",
@@ -10,15 +11,16 @@ module.exports = {
   type : "mechanic",
   category: "light",
   displacement : "air",
-  movementType : movementType,
+  movementType : require("./../moves/movement/allMovement.js"),
   movementCost : 1,
+  catapult: false,
   bonus : {
     light : {
       attack : 200
     }
   },
-  attackMoves : [],
-  posAttackMoves : [],
+  attackMoves : [Attack],
+  posAttackMoves : [Rebound],
   defenseMoves : [],
   posDefenseMoves : []
 };

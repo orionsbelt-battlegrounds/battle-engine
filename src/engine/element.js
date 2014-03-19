@@ -24,7 +24,22 @@ function addNewEffect(element,effect) {
 //----------------------
 
 Element.prototype.clone : function () {
+  var element = new Element();
 
+  element.canBeMoved = this.canBeMoved,
+  element.canUseSpecialAbilities = this.canUseSpecialAbilities,
+  element.coolDown = this.coolDown;
+
+  element.unit =  this.unit;
+  element.coordinate = this.coordinate;
+  element.quantity = this.quantity;
+  element.originalQuantity = this.originalQuantity;
+
+  element.position = this.position;
+  element.remainingDefense = 0;
+  element.effects = this.effects;
+
+  return element;
 }
 
 Element.prototype.toString : function () {
@@ -70,6 +85,44 @@ Element.prototype.getRange : function() {
   bonus.getRange(this,terrain,target);
 }
 
+//----------------------
+//      Attack Cycle
+//----------------------
+
+Element.prototype.resolveAttackCycle : function (board, target, executeDefense) {
+  resolveAttack(board, this, target);
+  resolvePosAttack(board, this, target);
+  resolveDefense(board, target, this, executeDefense);
+  resolvePosDefense(board, this, target);
+}
+
+function resolveAttack(board, origin, target) {
+  attack.resolve(board,target);
+}
+
+function resolvePosAttack(board, origin, target){
+  if( this.canUseSpecialAbilities) {
+    resolveSpecialMove(unit.posAttackMoves, board, origin, target);
+  }
+}
+
+function resolveDefense(board, origin, target, executeDefense){
+  if( this.canUseSpecialAbilities && executeDefense && target.canBeMoved) {
+   resolveSpecialMove(unit.defenseMoves, board, origin, target); 
+  }
+}
+
+function resolvePosDefense(board, origin, target){
+  if( this.canUseSpecialAbilities) {
+    resolveSpecialMove(unit.posDefenseMoves, board, origin, target);
+  }
+}
+
+function resolveSpecialMove(moves, board, origin, target ) {
+  _.each(moves, function(specialMove){
+    specialMove.resolve(board,origin,target);
+  });
+}
 
 //----------------------
 //      Constructor
