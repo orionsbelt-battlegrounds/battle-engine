@@ -6,7 +6,7 @@ describe('board', function(){
 
   describe('#board', function() {
 
-    it('1_2 should been added', function() {
+    it('1_2 should have been added', function() {
       var board = new Board();
       var coordinate = new Coordinate(1,2);
       

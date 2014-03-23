@@ -9,6 +9,11 @@ describe('coordinate', function(){
       var coordinate = new Coordinate(1,2);
       expect(coordinate.x).to.be.equal(1);
       expect(coordinate.y).to.be.equal(2);
+    }),
+
+    it('toString should have returned 1_2', function() {
+      var coordinate = new Coordinate(1,2);
+      expect(coordinate.toString()).to.be.equal("1_2");
     })
 
   }),

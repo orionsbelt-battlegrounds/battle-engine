@@ -1,5 +1,5 @@
-var Coordinate = require("coordinate.js");
-var bonus = require("bonus.js");
+var Coordinate = require("./coordinate.js");
+var bonus = require("./bonus.js");
 var unitsLoader = require("../unitsLoader.js");
 
 
@@ -23,7 +23,7 @@ function addNewEffect(element,effect) {
 //      Utilities
 //----------------------
 
-Element.prototype.clone : function () {
+Element.prototype.clone = function () {
   var element = new Element();
 
   element.canBeMoved = this.canBeMoved,
@@ -40,26 +40,26 @@ Element.prototype.clone : function () {
   element.effects = this.effects;
 
   return element;
-}
+};
 
-Element.prototype.toString : function () {
+Element.prototype.toString = function () {
 
-}
+};
 
 //----------------------
 //      Effects
 //----------------------
 
-Element.prototype.addEffects : function(effect) {
+Element.prototype.addEffects = function(effect) {
   var currentEffect = effects[effect.name];
   if( currentEffect !== null ) {
     renewEffect(this, effect);
   }else{
     addNewEffect(this, effect);
   }
-}
+};
 
-Element.prototype.resolveEffects : function() {
+Element.prototype.resolveEffects = function() {
   _.each(this.effects, function(element) {
     if( !element.resolved ) {
       if( element.resolve() ) {
@@ -67,34 +67,34 @@ Element.prototype.resolveEffects : function() {
       }
     }
   });
-}
+};
 
 //----------------------
 //   Unit Properties
 //----------------------
 
-Element.prototype.getAttack : function(terrain,target) {
+Element.prototype.getAttack = function(terrain,target) {
   bonus.getAttack(this,terrain,target);
-}
+};
 
-Element.prototype.getDefense : function() {
+Element.prototype.getDefense = function() {
   bonus.getDefense(this,terrain,target);
-}
+};
 
-Element.prototype.getRange : function() {
+Element.prototype.getRange = function() {
   bonus.getRange(this,terrain,target);
-}
+};
 
 //----------------------
 //      Attack Cycle
 //----------------------
 
-Element.prototype.resolveAttackCycle : function (board, target, executeDefense) {
+Element.prototype.resolveAttackCycle = function (board, target, executeDefense) {
   resolveAttack(board, this, target);
   resolvePosAttack(board, this, target);
   resolveDefense(board, target, this, executeDefense);
   resolvePosDefense(board, this, target);
-}
+};
 
 function resolveAttack(board, origin, target) {
   attack.resolve(board,target);
@@ -129,7 +129,7 @@ function resolveSpecialMove(moves, board, origin, target ) {
 //----------------------
 
 // content format:
-// unit-coordinate-quantity-(quantity ou quantity-effect)
+// unit-coordinate-quantity-position-remaingdefense-effects
 
 
 function Element(content){
@@ -139,9 +139,9 @@ function Element(content){
 
   var splittedData = content.split("-");
 
-  this.unit = unitsLoader[splittedData[0]];
+  this.unit = unitsLoader.codes[splittedData[0]];
   this.coordinate = Coordinate.parse(splittedData[1]);
-  this.quantity = splittedData[2];
+  this.quantity = parseInt(splittedData[2]);
   this.originalQuantity = this.quantity;
 
   this.position = splittedData[3];
@@ -149,7 +149,7 @@ function Element(content){
   if( splittedData.length > 4) {
     var data = splittedData[4];
     var rd = parseInt(data);
-    if( rd != NaN ) {
+    if( rd !== NaN ) {
       this.remainingDefense = rd;
       if( splittedData.length > 5) {
         this.effects = parseEffects(splittedData[5]);

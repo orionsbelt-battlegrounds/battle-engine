@@ -96,6 +96,10 @@ Coordinate.prototype.rightCoordinate = function(position, numberOfPlayers) {
   return resolveCoordinate(position, "right", this, numberOfPlayers);
 };
 
+Coordinate.prototype.toString = function() {
+  return this.x + "_" + this.y;
+};
+
 //----------------------
 //      Static
 //----------------------
