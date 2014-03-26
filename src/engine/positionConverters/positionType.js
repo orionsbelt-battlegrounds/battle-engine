@@ -1,14 +1,8 @@
-function positionType() {
-
-  positionType.position = [];
-  positionType.position["N"] = "N";
-  positionType.position["W"] = "W";
-  positionType.position["S"] = "S";
-  positionType.position["E"] = "E";
-  
+var positionType = {
+  N: "N",
+  S: "S",
+  W: "W",
+  E: "E"
 }
-
-
-
 
 module.exports = positionType;

@@ -16,15 +16,15 @@ describe("obb.battle-engine.engine.positionConverters", function() {
     })
 
     it("retrieve element", function() {
-      new positionType();
+      
 
-      expect(positionType.position["N"]).to.eql("N");
+      expect(positionType["N"]).to.eql("N");
     })
 
     it("fail retrieve element", function() {
-      new positionType();
+      
 
-      expect(positionType.position["T"]).to.eql(undefined);
+      expect(positionType["T"]).to.eql(undefined);
     })
   });
 
@@ -81,8 +81,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Specific Success", function() {
       var converter = new basePositionConverter(2);
-      new positionType();
-      expect(converter.convertPositionToBase(positionType.position["N"])).to.eql(positionType.position["N"]);
+      
+      expect(converter.convertPositionToBase(positionType["N"])).to.eql(positionType["N"]);
 
     })
 
@@ -95,8 +95,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Base Success", function() {
       var converter = new basePositionConverter(2);
-      new positionType();
-      expect(converter.convertPositionToBase(positionType.position["N"])).to.eql(positionType.position["N"]);
+      
+      expect(converter.convertPositionToBase(positionType["N"])).to.eql(positionType["N"]);
 
     })
 
@@ -191,8 +191,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Specific Success", function() {
       var converter = new convertToPlayer1(2);
-      new positionType();
-      expect(converter.convertPositionToSpecific(positionType.position["N"])).to.eql(positionType.position["N"]);
+      
+      expect(converter.convertPositionToSpecific(positionType["N"])).to.eql(positionType["N"]);
 
     })
 
@@ -205,8 +205,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Base Success", function() {
       var converter = new convertToPlayer1(2);
-      new positionType();
-      expect(converter.convertPositionToBase(positionType.position["N"])).to.eql(positionType.position["N"]);
+      
+      expect(converter.convertPositionToBase(positionType["N"])).to.eql(positionType["N"]);
 
     })
 
@@ -254,8 +254,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Base Success", function() {
       var converter = new convertToPlayer2(2);
-      new positionType();
-      expect(converter.convertPositionToBase(positionType.position["N"])).to.eql(positionType.position["S"]);
+      
+      expect(converter.convertPositionToBase(positionType["N"])).to.eql(positionType["S"]);
 
     })
 
@@ -267,8 +267,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Specific Success", function() {
       var converter = new convertToPlayer2(2);
-      new positionType();
-      expect(converter.convertPositionToSpecific(positionType.position["S"])).to.eql(positionType.position["N"]);
+      
+      expect(converter.convertPositionToSpecific(positionType["S"])).to.eql(positionType["N"]);
 
     })
 
@@ -420,8 +420,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Specific Success", function() {
       var converter = new convertToPlayer3(2);
-      new positionType();
-      expect(converter.convertPositionToSpecific(positionType.position["N"])).to.eql(positionType.position["W"]);
+      
+      expect(converter.convertPositionToSpecific(positionType["N"])).to.eql(positionType["W"]);
 
     })
 
@@ -434,8 +434,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Base Success", function() {
       var converter = new convertToPlayer3(2);
-      new positionType();
-      expect(converter.convertPositionToBase(positionType.position["N"])).to.eql(positionType.position["E"]);
+      
+      expect(converter.convertPositionToBase(positionType["N"])).to.eql(positionType["E"]);
 
     })
 
@@ -529,8 +529,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Specific Success", function() {
       var converter = new convertToPlayer4(2);
-      new positionType();
-      expect(converter.convertPositionToSpecific(positionType.position["N"])).to.eql(positionType.position["E"]);
+      
+      expect(converter.convertPositionToSpecific(positionType["N"])).to.eql(positionType["E"]);
 
     })
 
@@ -543,8 +543,8 @@ describe("obb.battle-engine.engine.positionConverters", function() {
 
     it("convert Position To Base Success", function() {
       var converter = new convertToPlayer4(2);
-      new positionType();
-      expect(converter.convertPositionToBase(positionType.position["N"])).to.eql(positionType.position["W"]);
+      
+      expect(converter.convertPositionToBase(positionType["N"])).to.eql(positionType["W"]);
 
     })
 

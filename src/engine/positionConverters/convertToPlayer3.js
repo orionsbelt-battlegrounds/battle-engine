@@ -2,18 +2,17 @@ var basePositionConverter = require("./basePositionConverter.js");
 var positionType = require("./positionType.js");
 var coordinate = require("./../coordinate.js");
 
-new positionType();
 var positionConversion = [];
-positionConversion[positionType.position["N"]] = positionType.position["E"];
-positionConversion[positionType.position["S"]] = positionType.position["W"];
-positionConversion[positionType.position["W"]] = positionType.position["N"];
-positionConversion[positionType.position["E"]] = positionType.position["S"];
+positionConversion[positionType["N"]] = positionType["E"];
+positionConversion[positionType["S"]] = positionType["W"];
+positionConversion[positionType["W"]] = positionType["N"];
+positionConversion[positionType["E"]] = positionType["S"];
 
 var positionConversionToSpecific = [];
-positionConversionToSpecific[positionType.position["N"]] = positionType.position["W"];
-positionConversionToSpecific[positionType.position["S"]] = positionType.position["E"];
-positionConversionToSpecific[positionType.position["W"]] = positionType.position["S"];
-positionConversionToSpecific[positionType.position["E"]] = positionType.position["N"];
+positionConversionToSpecific[positionType["N"]] = positionType["W"];
+positionConversionToSpecific[positionType["S"]] = positionType["E"];
+positionConversionToSpecific[positionType["W"]] = positionType["S"];
+positionConversionToSpecific[positionType["E"]] = positionType["N"];
 
 function convertToPlayer3(players) {
   this.base = new basePositionConverter(players);
