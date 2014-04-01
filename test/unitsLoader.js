@@ -14,7 +14,7 @@ describe('unitLoader', function() {
   })
 
   it('has all available units registered', function() {
-    expect(Object.keys(obb.units).length).to.equal(6);
+    expect(Object.keys(obb.units).length).to.equal(12);
   })
 
   it('each unit has an unique name', function() {
@@ -30,7 +30,7 @@ describe('unitLoader', function() {
   })
 
   it('has all available codes registered', function() {
-    expect(Object.keys(obb.codes).length).to.equal(6);
+    expect(Object.keys(obb.codes).length).to.equal(12);
   })
 
   describe('verifies that all units have correct properties', function() {
